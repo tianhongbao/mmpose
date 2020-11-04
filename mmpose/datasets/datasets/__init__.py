@@ -1,8 +1,8 @@
 from ...deprecated import (TopDownFreiHandDataset, TopDownOneHand10KDataset,
                            TopDownPanopticDataset)
 from .bottom_up import BottomUpCocoDataset, BottomUpCrowdPoseDataset
-from .hand import (FreiHandDataset, InterHand2DDataset, OneHand10KDataset,
-                   PanopticDataset)
+from .hand import (FreiHandDataset, InterHand2DDataset, InterHand3DDataset,
+                   OneHand10KDataset, PanopticDataset)
 from .mesh import (MeshAdversarialDataset, MeshH36MDataset, MeshMixDataset,
                    MoshDataset)
 from .top_down import (TopDownAicDataset, TopDownCocoDataset,
@@ -18,5 +18,5 @@ __all__ = [
     'MeshMixDataset', 'MoshDataset', 'MeshAdversarialDataset',
     'TopDownCrowdPoseDataset', 'BottomUpCrowdPoseDataset',
     'TopDownFreiHandDataset', 'TopDownOneHand10KDataset',
-    'TopDownPanopticDataset', 'TopDownPoseTrack18Dataset'
+    'TopDownPanopticDataset', 'TopDownPoseTrack18Dataset', 'InterHand3DDataset'
 ]

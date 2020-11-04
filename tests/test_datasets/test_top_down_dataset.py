@@ -600,19 +600,19 @@ def test_top_down_InterHand2D_dataset():
     # Test
     data_cfg_copy = copy.deepcopy(data_cfg)
     _ = dataset_class(
-        ann_file='tests/data/interhand2d/test_interhand2d_data.json',
-        camera_file='tests/data/interhand2d/test_interhand2d_camera.json',
-        joint_file='tests/data/interhand2d/test_interhand2d_joint_3d.json',
-        img_prefix='tests/data/interhand2d/',
+        ann_file='tests/data/interhand2.6m/test_interhand2.6m_data.json',
+        camera_file='tests/data/interhand2.6m/test_interhand2.6m_camera.json',
+        joint_file='tests/data/interhand2.6m/test_interhand2.6m_joint_3d.json',
+        img_prefix='tests/data/interhand2.6m/',
         data_cfg=data_cfg_copy,
         pipeline=[],
         test_mode=True)
 
     custom_dataset = dataset_class(
-        ann_file='tests/data/interhand2d/test_interhand2d_data.json',
-        camera_file='tests/data/interhand2d/test_interhand2d_camera.json',
-        joint_file='tests/data/interhand2d/test_interhand2d_joint_3d.json',
-        img_prefix='tests/data/interhand2d/',
+        ann_file='tests/data/interhand2.6m/test_interhand2.6m_data.json',
+        camera_file='tests/data/interhand2.6m/test_interhand2.6m_camera.json',
+        joint_file='tests/data/interhand2.6m/test_interhand2.6m_joint_3d.json',
+        img_prefix='tests/data/interhand2.6m/',
         data_cfg=data_cfg_copy,
         pipeline=[],
         test_mode=False)
@@ -620,6 +620,60 @@ def test_top_down_InterHand2D_dataset():
     assert custom_dataset.test_mode is False
     assert custom_dataset.num_images == 4
     assert len(custom_dataset.db) == 6
+
+    _ = custom_dataset[0]
+
+
+def test_top_down_InterHand3D_dataset():
+    dataset = 'InterHand3DDataset'
+    dataset_class = DATASETS.get(dataset)
+
+    channel_cfg = dict(
+        num_output_channels=42,
+        dataset_joints=42,
+        dataset_channel=[
+            [
+                0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
+                18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33,
+                34, 35, 36, 37, 38, 39, 40, 41
+            ],
+        ],
+        inference_channel=[
+            0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
+            19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35,
+            36, 37, 38, 39, 40, 41
+        ])
+
+    data_cfg = dict(
+        image_size=[256, 256],
+        heatmap_size=[64, 64],
+        num_output_channels=channel_cfg['num_output_channels'],
+        num_joints=channel_cfg['dataset_joints'],
+        dataset_channel=channel_cfg['dataset_channel'],
+        inference_channel=channel_cfg['inference_channel'])
+    # Test
+    data_cfg_copy = copy.deepcopy(data_cfg)
+    _ = dataset_class(
+        ann_file='tests/data/interhand2.6m/test_interhand2.6m_data.json',
+        camera_file='tests/data/interhand2.6m/test_interhand2.6m_camera.json',
+        joint_file='tests/data/interhand2.6m/test_interhand2.6m_joint_3d.json',
+        img_prefix='tests/data/interhand2.6m/',
+        data_cfg=data_cfg_copy,
+        pipeline=[],
+        test_mode=True)
+
+    custom_dataset = dataset_class(
+        ann_file='tests/data/interhand2.6m/test_interhand2.6m_data.json',
+        camera_file='tests/data/interhand2.6m/test_interhand2.6m_camera.json',
+        joint_file='tests/data/interhand2.6m/test_interhand2.6m_joint_3d.json',
+        img_prefix='tests/data/interhand2.6m/',
+        data_cfg=data_cfg_copy,
+        pipeline=[],
+        test_mode=False)
+
+    assert custom_dataset.test_mode is False
+    assert custom_dataset.num_images == 4
+    assert len(custom_dataset.db) == 4
 
     _ = custom_dataset[0]
 
