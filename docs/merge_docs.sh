@@ -37,7 +37,6 @@ sed -i 's/](\/docs\//](/g' hand_models.md
 sed -i 's/](\/docs\//](/g' mesh_models.md
 sed -i 's/](\/docs\//](/g' ./tutorials/*.md
 sed -i 's/](\/docs\//](/g' data_preparation.md
-sed -i 's/](\/docs\//](/g' ./tasks/*/*.md
 
 sed -i 's=](/=](https://github.com/open-mmlab/mmpose/tree/master/=g' bottom_up_models.md
 sed -i 's=](/=](https://github.com/open-mmlab/mmpose/tree/master/=g' top_down_models.md

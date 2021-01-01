@@ -14,8 +14,10 @@ Welcome to MMPose's documentation!
    :maxdepth: 2
    :caption: Datasets
 
-   data_preparation.md
-   mesh_task.md
+   tasks/2d_body_keypoint/data_preparation.md
+   tasks/2d_hand_keypoint/data_preparation.md
+   tasks/2d_wholebody_keypoint/data_preparation.md
+   tasks/3d_body_mesh/data_preparation.md
 
 .. toctree::
    :maxdepth: 2
